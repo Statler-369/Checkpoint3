@@ -20,9 +20,9 @@ namespace BlowOut.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Rentals()
         {
-            ViewBag.Message = "Your contact page.";
+            
 
             return View();
         }
