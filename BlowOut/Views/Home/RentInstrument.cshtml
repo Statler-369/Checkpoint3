@@ -1,0 +1,22 @@
+﻿@model BlowOut.Models.Instrument
+
+@{
+    ViewBag.Title = "Rent Instrument";
+}
+@{ViewBag.link = @Model.InstrumentName + ".jpg";}
+<h2>Rent Instrument</h2>
+
+<div class="container">
+    <div class="col-md-4">
+        <img style="width:500px; height: auto; object-fit: contain;" src="~/Content/images/@ViewBag.link" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        @Html.ActionLink("Used", "RentPrice", new { sName=@Model.InstrumentName, rentType="Used" }, new { @class = "btn btn-primary" })
+    </div>
+    <div class="col-md-4">
+        @Html.ActionLink("New", "RentPrice", new { sName = @Model.InstrumentName, rentType = "New" }, new { @class = "btn btn-primary" })
+    </div>
+</div>

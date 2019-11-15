@@ -33,10 +33,21 @@ namespace BlowOut.Controllers
         }
 
         public ActionResult Rentals()
-        {
-            
+        {            
 
             return View();
+        }
+
+        public ActionResult RentInstrument(string sName)
+        {
+
+            return View(instrumentList.Find(item => item.InstrumentName == sName));
+        }
+
+        public ActionResult RentPrice(string sName, string rentType)
+        {
+            ViewBag.Rent = rentType; //Pass the view the type of rental the person would like.
+            return View(instrumentList.Find(instrument => instrument.InstrumentName == sName));
         }
     }
 }
