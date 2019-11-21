@@ -1,24 +1,37 @@
-﻿using BlowOut.Models;
+﻿using BlowOut.DAL;
+using BlowOut.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+/***********************************************************
+ * Status so far:
+ * I have connected this project to a database and created the client and instrument tables.
+ * I have changed the models to match the tables.
+ * I have inserted the instrument information into the instrument table.
+ * I have created the object that lets us speak with the database(db)
+ * 
+ * Left to do:
+ * Because I changed the models, none of the controllers worked. I deleted all of the code dealing with the instrument model.
+ * Task: Recreate the pages we created before, using the database tables.
+ *      - Reference the pictures
+ *      - Determine New or Used Price
+ * Create the capability to add clients to a database
+ *      - Scaffold a client controller using the database tables
+ * Create a 'Summary' View
+ *      - Thank customer by name
+ *      - Display all of the data discussed in the project requirements
+ * Flush out the 'About' View
+ * **********************************************************/
+
 namespace BlowOut.Controllers
 {
     public class HomeController : Controller
     {
-        private List<Instrument> instrumentList = new List<Instrument>
-        {
-            new Instrument{InstrumentName = "Trumpet", NewPrice=55, UsedPrice=25},
-            new Instrument{InstrumentName = "Trombone", NewPrice=60, UsedPrice=35},
-            new Instrument{InstrumentName = "Tuba", NewPrice=70, UsedPrice=50},
-            new Instrument{InstrumentName = "Flute", NewPrice=40, UsedPrice=25},
-            new Instrument{InstrumentName = "Clarinet", NewPrice=35, UsedPrice=27},
-            new Instrument{InstrumentName = "Saxophone", NewPrice=42, UsedPrice=30}
-        };
-
+        
+        private BlowOutContext db = new BlowOutContext();
 
         public ActionResult Index()
         {
@@ -31,16 +44,20 @@ namespace BlowOut.Controllers
             return View();
         }
 
+        public ActionResult About()
+        {
+            return View();
+        }
+
         public ActionResult RentInstrument(string sName)
         {
 
-            return View(instrumentList.Find(item => item.InstrumentName == sName));
+            return View();
         }
 
         public ActionResult RentPrice(string sName, string rentType)
-        {
-            ViewBag.Rent = rentType; //Pass the view the type of rental the person would like.
-            return View(instrumentList.Find(instrument => instrument.InstrumentName == sName));
+        {            
+            return View();
         }
     }
 }

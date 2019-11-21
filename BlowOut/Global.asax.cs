@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using BlowOut.Models;
+using BlowOut.DAL;
+using System.Data.Entity;
 
 namespace BlowOut
 {
@@ -12,10 +15,9 @@ namespace BlowOut
     {
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            Database.SetInitializer<BlowOutContext>(null);
+            AreaRegistration.RegisterAllAreas();            
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }
 }
