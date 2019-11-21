@@ -14,7 +14,8 @@ using System.Web.Mvc;
  * I have created the object that lets us speak with the database(db)
  * 
  * Left to do:
- * Because I changed the models, none of the controllers worked. I deleted all of the code dealing with the instrument model.
+ * Because I changed the models, none of the controllers worked. 
+ *      I deleted all of the code dealing with the instrument model.
  * Task: Recreate the pages we created before, using the database tables.
  *      - Reference the pictures
  *      - Determine New or Used Price
@@ -48,15 +49,10 @@ namespace BlowOut.Controllers
         {
             return View();
         }
-
-        public ActionResult RentInstrument(string sName)
-        {
-
-            return View();
-        }
-
+        
         public ActionResult RentPrice(string sName, string rentType)
-        {            
+        {
+            ViewBag.Rent = rentType;
             return View();
         }
     }

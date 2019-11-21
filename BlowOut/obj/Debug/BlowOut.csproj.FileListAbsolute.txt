@@ -74,3 +74,9 @@ C:\Users\statl\source\repos\BlowOut\BlowOut\obj\Debug\BlowOut.csproj.CoreCompile
 C:\Users\statl\source\repos\BlowOut\BlowOut\obj\Debug\BlowOut.csproj.CopyComplete
 C:\Users\statl\source\repos\BlowOut\BlowOut\obj\Debug\BlowOut.dll
 C:\Users\statl\source\repos\BlowOut\BlowOut\obj\Debug\BlowOut.pdb
+C:\Users\statl\source\repos\BlowOut\BlowOut\bin\EntityFramework.dll
+C:\Users\statl\source\repos\BlowOut\BlowOut\bin\EntityFramework.SqlServer.dll
+C:\Users\statl\source\repos\BlowOut\BlowOut\bin\EntityFramework.xml
+C:\Users\statl\source\repos\BlowOut\BlowOut\bin\EntityFramework.SqlServer.xml
+C:\Users\statl\source\repos\BlowOut\BlowOut\bin\fr\EntityFramework.resources.dll
+C:\Users\statl\source\repos\BlowOut\BlowOut\bin\fr\EntityFramework.SqlServer.resources.dll

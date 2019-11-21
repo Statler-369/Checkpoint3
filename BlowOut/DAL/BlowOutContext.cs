@@ -10,7 +10,7 @@ namespace BlowOut.DAL
     public class BlowOutContext : DbContext
     {
         public BlowOutContext()
-            : base("BasketballContext")
+            : base("BlowOutContext")
         {
 
         }

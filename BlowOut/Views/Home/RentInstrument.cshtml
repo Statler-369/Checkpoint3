@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Rent Instrument";
 }
-@{ViewBag.link = @Model.InstrumentName + ".jpg";}
+@{ViewBag.link = @Model.Instrument_Desc + ".jpg";}
 <h2>Rent Instrument</h2>
 
 <div class="container">
@@ -14,9 +14,9 @@
 
 <div class="row">
     <div class="col-md-4">
-        @Html.ActionLink("Used", "RentPrice", new { sName=@Model.InstrumentName, rentType="Used" }, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Used", "Create", "Client", new { ID=@Model.Instrument_ID, rentType="Used" }, new { @class = "btn btn-primary" })
     </div>
     <div class="col-md-4">
-        @Html.ActionLink("New", "RentPrice", new { sName = @Model.InstrumentName, rentType = "New" }, new { @class = "btn btn-primary" })
+        @Html.ActionLink("New", "Create", "Client", new { ID = @Model.Instrument_ID, rentType = "New" }, new { @class = "btn btn-primary" })
     </div>
 </div>
