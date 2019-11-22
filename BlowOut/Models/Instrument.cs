@@ -13,6 +13,7 @@ namespace BlowOut.Models
         [Key]
         public int Instrument_ID { get; set; }
         public string Instrument_Desc { get; set; }
+        public string Rent_Type { get; set; }
         public int New_Price { get; set; }
         public int Used_Price { get; set; }
         public int Client_ID { get; set; }

@@ -14,9 +14,9 @@
 
 <div class="row">
     <div class="col-md-4">
-        @Html.ActionLink("Used", "Create", "Client", new { ID=@Model.Instrument_ID, rentType="Used" }, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Used", "Create", "Clients", new { ID=@Model.Instrument_ID, rentType="Used" }, new { @class = "btn btn-primary" })
     </div>
     <div class="col-md-4">
-        @Html.ActionLink("New", "Create", "Client", new { ID = @Model.Instrument_ID, rentType = "New" }, new { @class = "btn btn-primary" })
+        @Html.ActionLink("New", "Create", "Clients", new { ID = @Model.Instrument_ID, rentType = "New" }, new { @class = "btn btn-primary" })
     </div>
 </div>

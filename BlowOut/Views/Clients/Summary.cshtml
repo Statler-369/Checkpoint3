@@ -3,9 +3,70 @@
 @{
     ViewBag.Title = "Summary";
 }
-
+@{ViewBag.link = @Model.Instrument_Desc + ".jpg";}
 <h2>Summary</h2>
 
+<div class="jumbotron">
+    <div class="container">
+        <div class="col-md-4">
+            <h2>Thank you @ViewBag.Client</h2>
+
+            <table style="width:100%">
+                <tr>
+                    <th>Order Information</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>Order Number:</td>
+                    <td>@Model.Client_ID</td>
+                </tr>
+                <tr>
+                    <td>Instrument:</td>
+                    <td>@Model.Instrument_Desc</td>
+                </tr>
+                <tr>
+                    <td>Instrument Usage:</td>
+                    <td>@Model.Rent_Type</td>
+                </tr>
+                @{
+                    if (Model.Rent_Type == "New")
+                    {
+                        <tr>
+                            <td>Monthly Price:</td>
+                            <td>$@Model.New_Price</td>
+                        </tr>
+                        <tr>
+                            <td>Paid after 18 months:</td>
+                            <td>$@(Model.New_Price * 18)</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td>Monthly Price:</td>
+                            <td>$@Model.Used_Price</td>
+                        </tr>
+                        <tr>
+                            <td>Paid after 18 months:</td>
+                            <td>$@(Model.Used_Price * 18)</td>
+                        </tr>
+                    }
+                }
+
+            </table>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <img src="~/Content/images/@ViewBag.link" />
+        </div>        
+    </div>
+</div>
+
 <p>
-    @{ ViewBag.Client}, thank you for your order of a trumpet.
+    <h3>Fine Print</h3>
+    Rent this instrument for 18 months, and you own it.
+    <br />
+    If instrument is returned after 3 months of renting and before 18 months, all equity in the instrument is forfeited.
+    <br />
+    If you return the instrument less than 3 months after renting, you will be assesed a $200 re-stocking fee
 </p>

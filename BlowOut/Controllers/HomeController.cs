@@ -49,6 +49,12 @@ namespace BlowOut.Controllers
         {
             return View();
         }
+
+        public ActionResult RentInstrument(int Instrument_ID)
+        {
+
+            return View(db.Instruments.Find(Instrument_ID));
+        }
         
         public ActionResult RentPrice(string sName, string rentType)
         {

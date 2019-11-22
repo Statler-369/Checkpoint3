@@ -38,10 +38,11 @@ namespace BlowOut.Controllers
         }
 
         // GET: Clients/Create
-        public ActionResult Create(int Instrument_ID, string rentType)
+        public ActionResult Create(int ID, string rentType)
         {
-            rentInstrument.Instrument_ID = Instrument_ID;
-            
+            rentInstrument.Instrument_ID = ID;
+            rentInstrument.Rent_Type = rentType;
+
             return View();
         }
 
@@ -58,7 +59,8 @@ namespace BlowOut.Controllers
                 db.SaveChanges();
                 
                 db.Instruments.Find(rentInstrument.Instrument_ID).Client_ID =
-                    db.Database.SqlQuery<int>("SELECT MAX(Client_Id) FROM Client").First(); ;
+                    db.Database.SqlQuery<int>("SELECT MAX(Client_Id) FROM Client").First();
+                
                         
                 db.SaveChanges();
                 return RedirectToAction("Summary");
@@ -69,9 +71,11 @@ namespace BlowOut.Controllers
 
         public ActionResult Summary()
         {
-            ViewBag.Client = 
-                db.Database.SqlQuery<string>
-                ("SELECT First_Name FROM Client WHERE Client_Id = " + rentInstrument.Client_ID);
+            string clientName = db.Database.SqlQuery<string>
+                    ("SELECT First_Name FROM Client WHERE Client_Id = " +
+                    db.Instruments.Find(rentInstrument.Instrument_ID).Client_ID).First();
+
+            ViewBag.Client = clientName;
 
             return View(db.Instruments.Find(rentInstrument.Instrument_ID));
         }
