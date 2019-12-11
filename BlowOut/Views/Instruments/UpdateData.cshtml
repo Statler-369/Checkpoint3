@@ -1,0 +1,80 @@
+﻿@model IEnumerable<BlowOut.Models.ClientInstrument>
+
+@{
+    ViewBag.Title = "Update Data";
+}
+
+<h2>Update Data</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Order Number
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.instrument.Instrument_Desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.instrument.Rent_Type)
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Client Name
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.client.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.client.Phone_Number)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.instrument.Client_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.instrument.Instrument_Desc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.instrument.Rent_Type)
+        </td>
+        <td>
+            @{
+                if (item.instrument.Rent_Type == "New")
+                {
+                    <text>$</text>@Html.DisplayFor(modelItem => item.instrument.New_Price)
+                }
+                else
+                {
+                    <text>$</text>@Html.DisplayFor(modelItem => item.instrument.Used_Price)
+                }
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.client.First_Name) @Html.DisplayFor(modelItem => item.client.Last_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.client.Address) @Html.DisplayFor(modelItem => item.client.City), @Html.DisplayFor(modelItem => item.client.State) @Html.DisplayFor(modelItem => item.client.Zip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.client.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.client.Phone_Number)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", "Clients", new { id = item.instrument.Client_ID }, null) |
+            @Html.ActionLink("Delete", "Delete", "Clients", new { id = item.instrument.Client_ID }, null)
+        </td>
+    </tr>
+}
+
+</table>

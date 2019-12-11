@@ -129,6 +129,7 @@
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InstrumentsController.cs" />
     <Compile Include="DAL\BlowOutContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -146,6 +147,7 @@
     <Content Include="Content\images\Clarinet.jpg" />
     <Content Include="Content\images\Flute.jpg" />
     <Content Include="Content\images\Instrument_Background.jpg" />
+    <Content Include="Content\images\Joseph_Haydn.jpg" />
     <Content Include="Content\images\Saxophone.jpg" />
     <Content Include="Content\images\Trombone.jpg" />
     <Content Include="Content\images\Trumpet.jpg" />
@@ -191,6 +193,12 @@
     <Content Include="Views\Clients\Edit.cshtml" />
     <Content Include="Views\Clients\Index.cshtml" />
     <Content Include="Views\Clients\Summary.cshtml" />
+    <Content Include="Views\Instruments\Create.cshtml" />
+    <Content Include="Views\Instruments\Delete.cshtml" />
+    <Content Include="Views\Instruments\Details.cshtml" />
+    <Content Include="Views\Instruments\Edit.cshtml" />
+    <Content Include="Views\Instruments\UpdateData.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

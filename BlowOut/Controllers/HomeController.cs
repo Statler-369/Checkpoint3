@@ -5,27 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
-/***********************************************************
- * Status so far:
- * I have connected this project to a database and created the client and instrument tables.
- * I have changed the models to match the tables.
- * I have inserted the instrument information into the instrument table.
- * I have created the object that lets us speak with the database(db)
- * 
- * Left to do:
- * Because I changed the models, none of the controllers worked. 
- *      I deleted all of the code dealing with the instrument model.
- * Task: Recreate the pages we created before, using the database tables.
- *      - Reference the pictures
- *      - Determine New or Used Price
- * Create the capability to add clients to a database
- *      - Scaffold a client controller using the database tables
- * Create a 'Summary' View
- *      - Thank customer by name
- *      - Display all of the data discussed in the project requirements
- * Flush out the 'About' View
- * **********************************************************/
+using System.Web.Security;
 
 namespace BlowOut.Controllers
 {
@@ -37,6 +17,31 @@ namespace BlowOut.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        // GET: Home
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(FormCollection form, bool rememberMe = false)
+        {
+            String email = form["Email address"].ToString();
+            String password = form["Password"].ToString();
+
+            if (string.Equals(email, "Missouri") && (string.Equals(password, "ShowMe")))
+            {
+                FormsAuthentication.SetAuthCookie(email, rememberMe);
+
+                return RedirectToAction("UpdateData", "Instruments");
+
+            }
+            else
+            {
+                return View();
+            }
         }
 
         public ActionResult Rentals()

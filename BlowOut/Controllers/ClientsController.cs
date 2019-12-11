@@ -106,7 +106,7 @@ namespace BlowOut.Controllers
             {
                 db.Entry(client).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("UpdateData", "Instruments");
             }
             return View(client);
         }
@@ -132,9 +132,11 @@ namespace BlowOut.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Client client = db.Clients.Find(id);
-            db.Clients.Remove(client);
+            db.Clients.Remove(client);            
             db.SaveChanges();
-            return RedirectToAction("Index");
+            Instrument editInstrument = db.Database.SqlQuery<Instrument>("SELECT * FROM Instrument WHERE Client_ID = " + id).First();
+            editInstrument.Client_ID = null;
+            return RedirectToAction("UpdateInstrument", "Instruments", editInstrument);
         }
 
         protected override void Dispose(bool disposing)

@@ -8,10 +8,7 @@ namespace BlowOut.Models
 {
     public class ClientInstrument
     {
-        [Key]
-        public int orderNum { get; set; }
         public Client client { get; set; }
         public Instrument instrument { get; set; }
-
     }
 }
